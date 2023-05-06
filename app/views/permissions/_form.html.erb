@@ -1,0 +1,36 @@
+<%= form_with(model: permission) do |form| %>
+<% if permission.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(permission.errors.count, "error") %> prohibited this permission from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% permission.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :role_of_supervisor_id, class: label_class %>
+        <%= form.select :role_of_supervisor_id, options_from_collection_for_select(
+          RoleOfSupervisor.all, 'id', 'role_of_supervisor_category', selected = permission.role_of_supervisor_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :supervisor_id, class: label_class %>
+        <%= form.select :supervisor_id, options_from_collection_for_select(
+          Supervisor.all, 'id', 'supervisor_name', selected = permission.supervisor_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :permission_date, class: label_class %>
+          <%= form.date_field :permission_date, class: input_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if permission.persisted? %>
+<%= link_to "Cancel", permission, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", permissions_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>

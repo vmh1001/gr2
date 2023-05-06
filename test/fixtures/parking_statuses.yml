@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parking_fee: one
+  parking_slot: one
+  car: one
+  customer: one
+  permission: one
+
+two:
+  parking_fee: two
+  parking_slot: two
+  car: two
+  customer: two
+  permission: two

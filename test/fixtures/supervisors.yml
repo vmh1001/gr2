@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role_of_supervisor: one
+  supervisor_name: MyString
+  supervisor_DoB: 2023-05-04
+  supervisor_address: MyString
+  supervisor_phone: MyString
+
+two:
+  role_of_supervisor: two
+  supervisor_name: MyString
+  supervisor_DoB: 2023-05-04
+  supervisor_address: MyString
+  supervisor_phone: MyString

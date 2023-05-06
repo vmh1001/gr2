@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role_of_supervisor: one
+  supervisor: one
+  permission_date: 2023-05-04
+
+two:
+  role_of_supervisor: two
+  supervisor: two
+  permission_date: 2023-05-04

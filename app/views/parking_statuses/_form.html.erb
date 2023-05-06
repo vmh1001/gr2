@@ -1,0 +1,47 @@
+<%= form_with(model: parking_status) do |form| %>
+<% if parking_status.errors.any? %>
+<div id="error_explanation" class="bg-red-50 p-6 rounded text-red-800">
+  <h2 class="text-lg font-semibold mb-3"><%= pluralize(parking_status.errors.count, "error") %> prohibited this parking_status from being saved:</h2>
+
+  <ul class="list-disc leading-relaxed">
+    <% parking_status.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="mb-6">
+        <%= form.label :parking_fee_id, class: label_class %>
+        <%= form.select :parking_fee_id, options_from_collection_for_select(
+          ParkingFee.all, 'id', 'parking_fee_type', selected = parking_status.parking_fee_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :parking_slot_id, class: label_class %>
+        <%= form.select :parking_slot_id, options_from_collection_for_select(
+          ParkingSlot.all, 'id', 'parking_slot_type', selected = parking_status.parking_slot_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :car_id, class: label_class %>
+        <%= form.select :car_id, options_from_collection_for_select(
+          Car.all, 'id', 'car_category', selected = parking_status.car_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :customer_id, class: label_class %>
+        <%= form.select :customer_id, options_from_collection_for_select(
+          Customer.all, 'id', 'customer_name', selected = parking_status.customer_id), class: label_class %>
+      </div>
+  <div class="mb-6">
+        <%= form.label :permission_id, class: label_class %>
+        <%= form.select :permission_id, options_from_collection_for_select(
+          Permission.all, 'id', 'permission_date', selected = parking_status.permission_id), class: label_class %>
+      </div>
+
+<%= form.submit class: button_class(theme: 'primary') %>
+
+<% if parking_status.persisted? %>
+<%= link_to "Cancel", parking_status, class: "text-neutral-700 underline inline-block ml-3" %>
+<% else %>
+<%= link_to "Cancel", parking_statuses_path, class:  "text-neutral-700 underline inline-block ml-3" %>
+<% end %>
+<% end %>

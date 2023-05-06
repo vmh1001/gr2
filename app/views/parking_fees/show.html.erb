@@ -1,0 +1,29 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Parking_fee</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to parking_fees_path, class: button_class(theme: "transparent") do %>
+      All Parking_fees
+      <% end %>
+      <%= link_to edit_parking_fee_path(@parking_fee), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Parking fee type:</p>
+        <p><%= @parking_fee.parking_fee_type %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Parking fee description:</p>
+        <p><%= @parking_fee.parking_fee_description %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Parking fee mone:</p>
+        <p><%= @parking_fee.parking_fee_money %></p>
+      </li>
+  </ul>
+</div>

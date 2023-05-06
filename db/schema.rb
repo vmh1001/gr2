@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_04_085904) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_04_092121) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_085904) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "cars", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "car_category"
+    t.string "car_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_cars_on_customer_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "customer_name"
+    t.date "customer_DoB"
+    t.string "customer_phone"
+    t.string "customer_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -58,6 +76,63 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_085904) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "parking_fees", force: :cascade do |t|
+    t.string "parking_fee_type"
+    t.string "parking_fee_description"
+    t.float "parking_fee_money"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parking_slots", force: :cascade do |t|
+    t.string "parking_slot_type"
+    t.string "parking_slot_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parking_statuses", force: :cascade do |t|
+    t.integer "parking_fee_id", null: false
+    t.integer "parking_slot_id", null: false
+    t.integer "car_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "permission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_parking_statuses_on_car_id"
+    t.index ["customer_id"], name: "index_parking_statuses_on_customer_id"
+    t.index ["parking_fee_id"], name: "index_parking_statuses_on_parking_fee_id"
+    t.index ["parking_slot_id"], name: "index_parking_statuses_on_parking_slot_id"
+    t.index ["permission_id"], name: "index_parking_statuses_on_permission_id"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.integer "role_of_supervisor_id", null: false
+    t.integer "supervisor_id", null: false
+    t.date "permission_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_of_supervisor_id"], name: "index_permissions_on_role_of_supervisor_id"
+    t.index ["supervisor_id"], name: "index_permissions_on_supervisor_id"
+  end
+
+  create_table "role_of_supervisors", force: :cascade do |t|
+    t.string "role_of_supervisor_category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "supervisors", force: :cascade do |t|
+    t.integer "role_of_supervisor_id", null: false
+    t.string "supervisor_name"
+    t.date "supervisor_DoB"
+    t.string "supervisor_address"
+    t.string "supervisor_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_of_supervisor_id"], name: "index_supervisors_on_role_of_supervisor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,4 +152,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_085904) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cars", "customers"
+  add_foreign_key "parking_statuses", "cars"
+  add_foreign_key "parking_statuses", "customers"
+  add_foreign_key "parking_statuses", "parking_fees"
+  add_foreign_key "parking_statuses", "parking_slots"
+  add_foreign_key "parking_statuses", "permissions"
+  add_foreign_key "permissions", "role_of_supervisors"
+  add_foreign_key "permissions", "supervisors"
+  add_foreign_key "supervisors", "role_of_supervisors"
 end

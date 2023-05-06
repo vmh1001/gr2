@@ -1,0 +1,37 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Parking_status</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to parking_statuses_path, class: button_class(theme: "transparent") do %>
+      All Parking_statuses
+      <% end %>
+      <%= link_to edit_parking_status_path(@parking_status), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Parking fee:</p>
+        <p><%= @parking_status.parking_fee.parking_fee_type %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Parking slot:</p>
+        <p><%= @parking_status.parking_slot.parking_slot_type %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Car:</p>
+        <p><%= @parking_status.car.car_category %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Customer:</p>
+        <p><%= @parking_status.customer.customer_name %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Permission:</p>
+        <p><%= @parking_status.permission.permission_date%></p>
+      </li>
+  </ul>
+</div>
