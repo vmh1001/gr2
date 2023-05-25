@@ -14,9 +14,9 @@
     <thead class="bg-slate-50 dark:bg-slate-700">
       <tr>
         
-                  <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Parking fee type</th>
-                  <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Parking fee description</th>
-                  <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Parking fee mone</th>
+                  <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Parking fees type</th>
+                  <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Parking fees description</th>
+                  <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">Parking fees money</th>
                 
           <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left"></th>
         
@@ -28,9 +28,9 @@
       <%= content_tag :tr, id: dom_id(parking_fee), class: dom_class(parking_fee) do %>
       
 
-              <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= parking_fee.parking_fee_type %></td>
-              <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= parking_fee.parking_fee_description %></td>
-              <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= parking_fee.parking_fee_money %></td>
+              <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= parking_fee.parking_fees_type %></td>
+              <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= parking_fee.parking_fees_description %></td>
+              <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= parking_fee.parking_fees_money %></td>
       
       
         <td class="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400"><%= link_to 'Show', parking_fee %></td>

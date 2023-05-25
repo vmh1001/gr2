@@ -65,6 +65,6 @@ class ParkingFeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def parking_fee_params
-      params.require(:parking_fee).permit(:parking_fee_type, :parking_fee_description, :parking_fee_money)
+      params.require(:parking_fee).permit(:parking_fees_type, :parking_fees_description, :parking_fees_money)
     end
 end

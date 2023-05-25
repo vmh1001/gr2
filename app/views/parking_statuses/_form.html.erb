@@ -14,7 +14,7 @@
   <div class="mb-6">
         <%= form.label :parking_fee_id, class: label_class %>
         <%= form.select :parking_fee_id, options_from_collection_for_select(
-          ParkingFee.all, 'id', 'parking_fee_type', selected = parking_status.parking_fee_id), class: label_class %>
+          ParkingFee.all, 'id', 'parking_fees_type', selected = parking_status.parking_fee_id), class: label_class %>
       </div>
   <div class="mb-6">
         <%= form.label :parking_slot_id, class: label_class %>

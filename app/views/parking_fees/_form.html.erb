@@ -12,16 +12,16 @@
 <% end %>
 
   <div class="mb-6">
-        <%= form.label :parking_fee_type, class: label_class %>
-          <%= form.text_field :parking_fee_type, class: input_class %>
+        <%= form.label :parking_fees_type, class: label_class %>
+          <%= form.text_field :parking_fees_type, class: input_class %>
       </div>
   <div class="mb-6">
-        <%= form.label :parking_fee_description, class: label_class %>
-          <%= form.text_field :parking_fee_description, class: input_class %>
+        <%= form.label :parking_fees_description, class: label_class %>
+          <%= form.text_field :parking_fees_description, class: input_class %>
       </div>
   <div class="mb-6">
-        <%= form.label :parking_fee_money, class: label_class %>
-          <%= form.text_field :parking_fee_money, class: input_class %>
+        <%= form.label :parking_fees_money, class: label_class %>
+          <%= form.number_field :parking_fees_money, class: input_class %>
       </div>
 
 <%= form.submit class: button_class(theme: 'primary') %>

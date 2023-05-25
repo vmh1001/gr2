@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_04_092121) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_135859) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -79,9 +79,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_092121) do
   end
 
   create_table "parking_fees", force: :cascade do |t|
-    t.string "parking_fee_type"
-    t.string "parking_fee_description"
-    t.float "parking_fee_money"
+    t.string "parking_fees_type"
+    t.string "parking_fees_description"
+    t.integer "parking_fees_money"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

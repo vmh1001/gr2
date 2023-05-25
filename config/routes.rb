@@ -1,13 +1,13 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :parking_fees
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :parking_statuses
   resources :permissions
   resources :supervisors
   resources :role_of_supervisors
   resources :parking_slots
-  resources :parking_fees
   resources :cars
   resources :customers
     authenticate :user, lambda { |u| u.admin? } do

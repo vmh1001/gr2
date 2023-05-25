@@ -14,9 +14,9 @@ class ParkingFeesTest < ApplicationSystemTestCase
     visit parking_fees_url
     click_on "New parking fee"
 
-    fill_in "Parking fee description", with: @parking_fee.parking_fee_description
-    fill_in "Parking fee mone", with: @parking_fee.parking_fee_money
-    fill_in "Parking fee type", with: @parking_fee.parking_fee_type
+    fill_in "Parking fees description", with: @parking_fee.parking_fees_description
+    fill_in "Parking fees money", with: @parking_fee.parking_fees_money
+    fill_in "Parking fees type", with: @parking_fee.parking_fees_type
     click_on "Create Parking fee"
 
     assert_text "Parking fee was successfully created"
@@ -27,9 +27,9 @@ class ParkingFeesTest < ApplicationSystemTestCase
     visit parking_fee_url(@parking_fee)
     click_on "Edit this parking fee", match: :first
 
-    fill_in "Parking fee description", with: @parking_fee.parking_fee_description
-    fill_in "Parking fee mone", with: @parking_fee.parking_fee_money
-    fill_in "Parking fee type", with: @parking_fee.parking_fee_type
+    fill_in "Parking fees description", with: @parking_fee.parking_fees_description
+    fill_in "Parking fees money", with: @parking_fee.parking_fees_money
+    fill_in "Parking fees type", with: @parking_fee.parking_fees_type
     click_on "Update Parking fee"
 
     assert_text "Parking fee was successfully updated"

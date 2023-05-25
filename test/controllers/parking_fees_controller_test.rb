@@ -17,7 +17,7 @@ class ParkingFeesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create parking_fee" do
     assert_difference("ParkingFee.count") do
-      post parking_fees_url, params: { parking_fee: { parking_fee_description: @parking_fee.parking_fee_description, parking_fee_money: @parking_fee.parking_fee_money, parking_fee_type: @parking_fee.parking_fee_type } }
+      post parking_fees_url, params: { parking_fee: { parking_fees_description: @parking_fee.parking_fees_description, parking_fees_money: @parking_fee.parking_fees_money, parking_fees_type: @parking_fee.parking_fees_type } }
     end
 
     assert_redirected_to parking_fee_url(ParkingFee.last)
@@ -34,7 +34,7 @@ class ParkingFeesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update parking_fee" do
-    patch parking_fee_url(@parking_fee), params: { parking_fee: { parking_fee_description: @parking_fee.parking_fee_description, parking_fee_money: @parking_fee.parking_fee_money, parking_fee_type: @parking_fee.parking_fee_type } }
+    patch parking_fee_url(@parking_fee), params: { parking_fee: { parking_fees_description: @parking_fee.parking_fees_description, parking_fees_money: @parking_fee.parking_fees_money, parking_fees_type: @parking_fee.parking_fees_type } }
     assert_redirected_to parking_fee_url(@parking_fee)
   end
 
